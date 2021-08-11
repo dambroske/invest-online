@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Invest Online - Home</title>
+</head>
+<body>
+
+    <ul><h2><u>InvestOnline.com</u></h2></ul>
+    <ul>
+        <ul><h3>Home Page</h3></ul>
+    </ul>
+
+    <form method="post" th:action="@{/logout}" id="logoutForm">
+        <a href="#" onclick="javascript:document.getElementById('logoutForm').submit(); return false"
+           style="color:crimson"><b>Log Out</b></a>
+    </form>
+
+    <br>
+
+    <a th:href="@{/summary}" style="color:royalblue"><b>
+        Investment Recommendations
+    </a>
+    <br>
+    <br>
+
+    <a th:href="@{/questionnaire}" style="color:royalblue">
+        Risk Profile assessment
+    </a></b>
+
+    <label>
+        <h4>
+            <ul>Investor Details</ul>
+        </h4>
+        </ul>
+    </label>
+
+    <label>
+        <b>Name:</b>
+        <label id="investorName" th:text="${investor.name}"></label>
+        <br>
+    </label>
+
+    <label>
+        <b>Email:</b>
+        <label id="emailAddress" th:text="${investor.emailAddress}"></label>
+        <br>
+    </label>
+
+    <label>
+        <b>Mobile:</b>
+        <label id="mobilePhone" th:text="${investor.phoneNumber}"></label>
+        <br>
+    </label>
+
+    <label>
+        <b>Address:</b>
+        <label id="mailingAddress" th:text="${investor.homeAddress}"></label>
+        <br>
+    </label>
+
+</body>
+</html>

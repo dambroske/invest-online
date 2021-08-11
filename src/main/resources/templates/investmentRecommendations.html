@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Investment Recommendations</title>
+</head>
+<body>
+    <ul><h2><u>InvestOnline.com</u></h2></ul>
+    <h3>⠀⠀Online Risk Profile Result</h3>
+    <ul>
+        <ul>
+            <ul><b>
+                <a th:href="@{/home}" style="color:royalblue"><b>Go to Home Page</b></a>⠀⠀⠀⠀
+                <form method="post" th:action="@{/logout}" id="logoutForm">
+                    <a href="#" onclick="javascript:document.getElementById('logoutForm').submit(); return false"
+                       style="color:crimson"><b>Log Out</b></a>
+                </form>
+            </b></ul>
+        </ul>
+    </ul>
+
+    <label><b>Our investment recommendation based on your<br>
+        risk profile is as follows:</b></label>
+
+    <ul>
+        <label><b>Risk Profile: </b></label>
+        <label id="riskProfileName" th:text="${investorProfile.riskProfileName}"></label>
+        <br>
+        <label><b>Recommendation: </b></label>
+        <label id="investmentStrategyDesc" th:text="${investorProfile.riskProfileRecommendation}"></label>
+        <br>
+        <label><b>% Debt Recommendation: </b></label>
+        <label id="debtRecommendationPercentage" th:text="${investorProfile.debitRecommendation}"></label>
+        <br>
+        <label><b>% Equity Recommendation: </b></label>
+        <label id="equityRecommendationPercentage" th:text="${investorProfile.equityRecommendation}"></label>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Risk Profile Assessment Questionnaire</title>
+    <script th:src="@{/javascript/jquery.js}"></script>
+    <script th:src="@{/javascript/myjs.js}"></script>
+</head>
+<body>
+
+    <ul><h2><u>InvestOnline.com</u></h2></ul>
+    <h3>Online Risk Profile Assessment Questionnaire</h3>
+    <form method="post" th:action="@{/logout}" id="logoutForm">
+        <a href="#" onclick="javascript:document.getElementById('logoutForm').submit(); return false"
+           style="color:crimson"><b>Log Out</b></a>
+    </form>
+
+    <br>
+
+    <label id="instruction">
+        Please answer the following question by choosing the appropriate <br>
+        option, then click on Next.
+    </label>
+
+    <br> <br>
+
+    <form id="questionForm" th:action="@{/questionnaire}" method="post">
+
+        <label id="question"><b>1. My age (in years) is:</b></label>
+        <br><br>
+        <input type="radio" th:checked="${response.responses[0] eq 'lessThan18'}"
+               th:name="option" id="one" value="lessThan18"> <18
+        <br>
+        <input type="radio" th:checked="${response.responses[0] eq '18-40'}"
+               th:name="option" id="two" value="18-40"> 18 - 40
+        <br>
+        <input type="radio" th:checked="${response.responses[0] eq '40-50'}"
+               th:name="option" id="three" value="40-50"> 40 - 50
+        <br>
+        <input type="radio" th:checked="${response.responses[0] eq '50-60'}"
+               th:name="option" id="four" value="50-60"> 50 - 60
+        <br>
+        <input type="radio" th:checked="${response.responses[0] eq 'greaterThan60'}"
+               th:name="option" id="five" value="greaterThan60"> >60
+        <br> <br>
+
+    </form>
+
+    <div id="errors" style="visibility:hidden">Please select an option to proceed</div>
+
+    <ul>
+        <ul>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <ul>
+                                <ul><a id="nextQuestion" href="" style="color:royalblue"><b>Next</b></a></ul>
+                            </ul>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+
+</body>
+</html>

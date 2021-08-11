@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Risk Profile Assessment Questionnaire</title>
+    <script th:src="@{/javascript/jquery.js}"></script>
+    <script th:src="@{/javascript/myjs.js}"></script>
+</head>
+<body>
+    <ul><h2><u>InvestOnline.com</u></h2></ul>
+    <h3>Online Risk Profile Assessment Questionnaire</h3>
+
+    <form method="post" th:action="@{/logout}" id="logoutForm">
+        <a href="#" onclick="javascript:document.getElementById('logoutForm').submit(); return false"
+           style="color:crimson"><b>Log Out</b></a>
+    </form>
+
+    <br>
+
+    <label id="instruction">
+        Please answer the following question by choosing the appropriate <br>
+        option, then click on Next.
+    </label>
+
+    <br> <br>
+
+    <form id="questionForm" th:action="@{/fifth}" method="post">
+
+        <label id="question"><b>5.⠀When I invest my money, I am:</b></label>
+        <br><br>
+        <input type="radio" th:checked="${response.responses[4] eq 'losing'}"
+               th:name="option" id="one" th:value="losing"> Most concerned about my investment losing value
+        <br>
+        <input type="radio" th:checked="${response.responses[4] eq 'losingOrGaining'}"
+               th:name="option" id="two" th:value="losingOrGaining"> Equally concerned about about my investment losing
+        or <br>
+        ⠀⠀ gaining value
+        <br>
+        <input type="radio" th:checked="${response.responses[4] eq 'gaining'}"
+               th:name="option" id="three" th:value="gaining"> Most concerned about my investment gaining value
+
+    </form>
+
+    <br> <br>
+
+    <div id="errors" style="visibility:hidden">Please select an option to proceed</div>
+
+    <ul>
+        <ul>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <a id="backButton" th:href="@{/fourth}" style="color:royalblue"><b>Back</b></a>
+                            ⠀⠀⠀⠀⠀⠀
+                            <a id="nextQuestion" href="" style="color:royalblue"><b>Next</b></a>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+
+</body>
+</html>

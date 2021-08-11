@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Risk Profile Result</title>
+</head>
+<body>
+    <ul><h2><u>InvestOnline.com</u></h2></ul>
+    <h3>⠀⠀Online Risk Profile Result</h3>
+    <ul>
+        <ul>
+            <ul><b>
+                <a th:href="@{/home}" style="color:royalblue"><b>Go to Home Page</b></a>⠀⠀⠀⠀
+                <form method="post" th:action="@{/logout}" id="logoutForm">
+                    <a href="#" onclick="javascript:document.getElementById('logoutForm').submit(); return false"
+                       style="color:crimson"><b>Log Out</b></a>
+                </form>
+            </b></ul>
+        </ul>
+    </ul>
+
+    <label><b>Based on your responses, your risk profile is as follows:</b></label>
+    <br>
+    <br>
+
+    <ul><label>Risk Score: </label>
+        <label id="riskScore" th:text="${riskScore}"></label>
+        <br>
+        <label>Risk Profile: </label>
+        <label id="riskProfileName" th:text="${riskProfile}"></label></ul>
+
+    <br>
+
+        <a th:href="@{/summary}" style="color:royalblue"><b>
+            <ul>Click here to see our Investment Recommendation
+        </b></a></ul>
+
+</body>
+</html>

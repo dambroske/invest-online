@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Risk Profile Assessment Questionnaire</title>
+    <script th:src="@{/javascript/jquery.js}"></script>
+    <script th:src="@{/javascript/myjs.js}"></script>
+</head>
+<body>
+    <ul><h2><u>InvestOnline.com</u></h2></ul>
+    <h3>Online Risk Profile Assessment Questionnaire</h3>
+    <form method="post" th:action="@{/logout}" id="logoutForm">
+        <a href="#" onclick="javascript:document.getElementById('logoutForm').submit(); return false"
+           style="color:crimson"><b>Log Out</b></a>
+    </form>
+
+    <br>
+
+    <label id="instruction">
+        Please answer the following question by choosing the appropriate <br>
+        option, then click on Next.
+    </label>
+
+    <br> <br>
+
+    <form id="questionForm" th:action="@{/second}" method="post">
+
+        <label id="question"><b>2. My annual income (in NSR) is:</b></label>
+        <br><br>
+        <input type="radio" th:checked="${response.responses[1] eq 'lessThan1Lakh'}"
+               th:name="option" id="one" th:value="lessThan1Lakh"> <1,00,000
+        <br>
+        <input type="radio" th:checked="${response.responses[1] eq '1to5'}"
+               th:name="option" id="two" th:value="1to5"> 1,00,000 - 5,00,000
+        <br>
+        <input type="radio" th:checked="${response.responses[1] eq '5to10'}"
+               th:name="option" id="three" th:value="5to10"> 5,00,000 - 10,00,000
+        <br>
+        <input type="radio" th:checked="${response.responses[1] eq '10to30'}"
+               th:name="option" id="four" th:value="10to30"> 10,00,000 - 30,00,000
+        <br>
+        <input type="radio" th:checked="${response.responses[1] eq 'greaterThan30'}"
+               th:name="option" id="five" th:value="greaterThan30"> >30,00,000
+        <br> <br>
+
+    </form>
+
+    <div id="errors" style="visibility:hidden">Please select an option to proceed</div>
+
+    <ul>
+        <ul>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <a id="backButton" th:href="@{/questionnaire}" style="color:royalblue"><b>Back</b></a>
+                            ⠀⠀⠀⠀⠀⠀
+                            <a id="nextQuestion" href="" style="color:royalblue"><b>Next</b></a>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+
+</body>
+</html>

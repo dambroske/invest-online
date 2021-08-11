@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Risk Profile Assessment Questionnaire</title>
+    <script th:src="@{/javascript/jquery.js}"></script>
+    <script th:src="@{/javascript/myjs.js}"></script>
+</head>
+<body>
+    <ul><h2><u>InvestOnline.com</u></h2></ul>
+    <h3>Online Risk Profile Assessment Questionnaire</h3>
+
+    <form method="post" th:action="@{/logout}" id="logoutForm">
+        <a href="#" onclick="javascript:document.getElementById('logoutForm').submit(); return false"
+           style="color:crimson"><b>Log Out</b></a>
+    </form>
+
+    <br>
+
+    <label id="instruction">
+        Please answer the following question by choosing the appropriate <br>
+        option, then click on Submit.
+    </label>
+
+    <br> <br>
+
+    <form id="questionForm" th:action="@{/sixth}" method="post">
+
+        <label id="question"><b>6.⠀Imagine that in the past 3 month, overall stock market lost 25% of<br>
+            ⠀⠀its value. An individual stock you own has also lost 25% of its value. <br>
+            ⠀⠀What would you do? </b></label>
+        <br><br>
+        <input type="radio" th:checked="${response.responses[5] eq 'sellAll'}"
+               th:name="option" id="one" th:value="sellAll"> Sell all of my shares
+        <br>
+        <input type="radio" th:checked="${response.responses[5] eq 'sellSome'}"
+               th:name="option" id="two" th:value="sellSome"> Sell some of my shares
+        <br>
+        <input type="radio" th:checked="${response.responses[5] eq 'doNothing'}"
+               th:name="option" id="three" th:value="doNothing"> Do nothing
+        <br>
+        <input type="radio" th:checked="${response.responses[5] eq 'buyMore'}"
+               th:name="option" id="four" th:value="buyMore"> Buy more shares
+
+    </form>
+
+    <br> <br>
+
+    <div id="errors" style="visibility:hidden">Please select an option to proceed</div>
+
+    <ul>
+        <ul>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <a id="backButton" th:href="@{/fifth}" style="color:royalblue"><b>Back</b></a>
+                            ⠀⠀⠀⠀⠀⠀
+                            <a id="nextQuestion" href="" style="color:royalblue"><b>Submit</b></a>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+
+</body>
+</html>

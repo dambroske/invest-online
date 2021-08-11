@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Risk Profile Assessment Questionnaire</title>
+    <script th:src="@{/javascript/jquery.js}"></script>
+    <script th:src="@{/javascript/myjs.js}"></script>
+</head>
+<body>
+    <ul><h2><u>InvestOnline.com</u></h2></ul>
+    <h3>Online Risk Profile Assessment Questionnaire</h3>
+    <form method="post" th:action="@{/logout}" id="logoutForm">
+        <a href="#" onclick="javascript:document.getElementById('logoutForm').submit(); return false"
+           style="color:crimson"><b>Log Out</b></a>
+    </form>
+
+    <br>
+
+    <label id="instruction">
+        Please answer the following question by choosing the appropriate <br>
+        option, then click on Next.
+    </label>
+
+    <br> <br>
+
+    <form id="questionForm" th:action="@{/third}" method="post">
+
+        <label id="question"><b>3. I plan to begin withdrawing money from my investments in:</b></label>
+        <br><br>
+        <input type="radio" th:checked="${response.responses[2] eq 'lessThan3'}"
+               th:name="option" id="one" th:value="lessThan3"> Less than 3 years
+        <br>
+        <input type="radio" th:checked="${response.responses[2] eq '3to5'}"
+               th:name="option" id="two" th:value="3to5"> 3 to 5 years
+        <br>
+        <input type="radio" th:checked="${response.responses[2] eq '6to10'}"
+               th:name="option" id="three" th:value="6to10"> 6 to 10 years
+        <br>
+        <input type="radio" th:checked="${response.responses[2] eq '11orMore'}"
+               th:name="option" id="four" th:value="11orMore"> 11 years or more
+
+    </form>
+
+    <br> <br>
+
+    <div id="errors" style="visibility:hidden">Please select an option to proceed</div>
+
+    <ul>
+        <ul>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <a id="backButton" th:href="@{/second}" style="color:royalblue"><b>Back</b></a>
+                            ⠀⠀⠀⠀⠀⠀
+                            <a id="nextQuestion" href="" style="color:royalblue"><b>Next</b></a>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+
+</body>
+</html>
